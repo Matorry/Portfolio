@@ -14,7 +14,6 @@
   gap: 10px;
 }
 
-/* Mensaje de estado */
 .status-message {
   font-size: 16px;
   margin-bottom: 15px;
@@ -24,7 +23,6 @@
   display: inline-block;
 }
 
-/* Formulario */
 .contact-form {
   max-width: 500px;
   margin: auto;
@@ -33,7 +31,6 @@
   gap: 15px;
 }
 
-/* Grupo de inputs con iconos */
 .input-group {
   display: flex;
   align-items: center;
@@ -49,14 +46,12 @@
   box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
 }
 
-/* Iconos */
 .input-icon {
   color: var(--primary-color, #ff6600);
   margin-right: 10px;
   font-size: 18px;
 }
 
-/* Inputs y textarea */
 input,
 textarea {
   width: 100%;
@@ -73,7 +68,6 @@ textarea {
   min-height: 100px;
 }
 
-/* Botón de enviar */
 .submit-button {
   background: var(--primary-color, #ff6600);
   color: white;
@@ -98,7 +92,6 @@ textarea {
   cursor: not-allowed;
 }
 
-/* Responsividad */
 @media (max-width: 768px) {
   .contact-form {
     padding: 0 10px;

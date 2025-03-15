@@ -7,21 +7,18 @@ export default function Navbar() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [theme, setTheme] = useState("light");
 
-  // Detectar cambios en el ancho de la pantalla
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Cargar el tema guardado (modo claro por defecto)
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "light";
     setTheme(savedTheme);
     document.documentElement.className = savedTheme === "dark" ? "dark" : "";
   }, []);
 
-  // Función para alternar el tema
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
@@ -29,7 +26,6 @@ export default function Navbar() {
     localStorage.setItem("theme", newTheme);
   };
 
-  // Componente switch para el toggle de tema
   const switchComponent = (
     <div className="switch-container">
       <input

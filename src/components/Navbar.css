@@ -8,7 +8,6 @@
   align-items: center;
 }
 
-/* Estilos para el toggle de tema */
 .theme-toggle {
   background: none;
   border: none;
@@ -17,15 +16,13 @@
   margin-left: 20px;
 }
 
-/* Reglas específicas para el toggle en móviles */
 .mobile-toggle {
   position: fixed;
   left: 20px;
   top: 15px;
-  z-index: 1100; /* Asegúrate de que esté por encima del botón hamburguesa */
+  z-index: 1100;
 }
 
-/* Ejemplo para el menú normal */
 .nav-list {
   display: flex;
   list-style: none;
@@ -36,7 +33,7 @@
 .nav-link {
   text-decoration: none;
   font-size: 18px;
-  color: var(--text-color); /* Usar variable para texto */
+  color: var(--text-color);
   position: relative;
   transition: color 0.3s;
 }
@@ -57,7 +54,6 @@
   width: 100%;
 }
 
-/* Contenedor del switch */
 .switch-container {
   position: relative;
   display: inline-block;
@@ -65,14 +61,12 @@
   height: 34px;
 }
 
-/* Ocultar el checkbox por defecto */
 .switch-container input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* Estilos del label que actúa como slider */
 .switch-container label {
   position: absolute;
   cursor: pointer;
@@ -85,7 +79,6 @@
   border-radius: 34px;
 }
 
-/* Círculo dentro del switch */
 .switch-container label:before {
   position: absolute;
   content: "";
@@ -98,17 +91,14 @@
   border-radius: 50%;
 }
 
-/* Estado activo (checkbox checked) */
 .switch-container input:checked + label {
   background-color: #ff6600;
 }
 
-/* Mover el círculo cuando está seleccionado */
 .switch-container input:checked + label:before {
   transform: translateX(26px);
 }
 
-/* Estilos del menú de react-burger-menu */
 .bm-menu-wrap {
   top: 0;
 }
@@ -147,7 +137,6 @@
   background: var(--text-color);
 }
 
-/* Ocultar menú normal en móviles */
 @media (max-width: 768px) {
   .nav-list {
     display: none;

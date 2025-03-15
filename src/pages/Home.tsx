@@ -7,7 +7,7 @@ import {
   MdStorage,
   MdWeb,
 } from "react-icons/md";
-import profilePic from "../assets/profile.jpg"; // Asegúrate de tener la imagen en esta ruta
+import profilePic from "../assets/profile.jpg";
 import "./Home.css";
 
 const techCategories = [

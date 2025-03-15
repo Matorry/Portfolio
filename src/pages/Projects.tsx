@@ -98,7 +98,6 @@ export default function Projects() {
     },
   ];
 
-  // Filtrar proyectos según la categoría seleccionada
   const filteredProjects = projects.filter((p) => p.category === category);
 
   return (
