@@ -137,11 +137,11 @@ export default function Projects() {
             className="project-card"
             whileHover={{ scale: 1.05 }}
           >
-            <img
+            {/* <img
               src={project.image}
               alt={project.name}
               className="project-image"
-            />
+            /> */}
             <div className="project-info">
               <h3>{project.name}</h3>
               <p className="project-description">{project.description}</p>
