@@ -1,0 +1,94 @@
+/* Estilos generales */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: flex-end; /* Alinea el menú a la derecha */
+}
+
+/* Estilos del menú normal en escritorio */
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  margin-right: 4rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  position: relative;
+  transition: color 0.3s;
+}
+
+/* Efecto de subrayado dinámico */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background-color: #ff6600;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* ✅ Ocultar menú normal en móviles */
+@media (max-width: 768px) {
+  .nav-list {
+    display: none;
+  }
+}
+
+/* Estilos del menú de react-burger-menu */
+.bm-menu-wrap {
+  top: 0;
+}
+
+/* Cambiar el fondo del menú */
+.bm-menu {
+  background: white;
+  padding: 2rem;
+  font-size: 1.2rem;
+}
+
+/* Estilos para los enlaces del menú hamburguesa */
+.bm-item {
+  display: block;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 15px;
+  transition: color 0.3s;
+}
+
+.bm-item:hover {
+  color: #ff6600; /* Naranja */
+}
+
+/* Estilos para el botón de hamburguesa */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  right: 20px;
+  top: 15px;
+}
+
+/* Color del icono de la hamburguesa */
+.bm-burger-bars {
+  background: black;
+}
+
+/* Color del botón cuando está abierto */
+.bm-cross {
+  background: black;
+}
