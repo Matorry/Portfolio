@@ -87,7 +87,7 @@ export default function Home() {
           experiencia me permiten abordar retos de desarrollo con creatividad y
           eficiencia.
         </p>
-        <a href="/assets/CV-Rodrigo.pdf" download className="download-cv">
+        <a href="/CV-Rodrigo.pdf" download className="download-cv">
           Descargar mi CV
         </a>
       </section>
