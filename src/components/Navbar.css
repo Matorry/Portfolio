@@ -1,15 +1,33 @@
-/* Estilos generales */
 .navbar {
   position: fixed;
   top: 0;
-  width: 100%;
-  background: white;
+  width: 95%;
+  /* Usa la variable para el fondo, así se adapta al tema */
+  background-color: var(--bg-color);
   padding: 10px 20px;
   display: flex;
-  justify-content: flex-end; /* Alinea el menú a la derecha */
+  justify-content: flex-end; /* Alinea el contenido a la derecha */
+  align-items: center;
 }
 
-/* Estilos del menú normal en escritorio */
+/* Estilos para el toggle de tema */
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+/* Reglas específicas para el toggle en móviles */
+.mobile-toggle {
+  position: fixed;
+  left: 20px;
+  top: 15px;
+  z-index: 1100; /* Asegúrate de que esté por encima del botón hamburguesa */
+}
+
+/* Ejemplo para el menú normal */
 .nav-list {
   display: flex;
   list-style: none;
@@ -20,12 +38,11 @@
 .nav-link {
   text-decoration: none;
   font-size: 18px;
-  color: black;
+  color: var(--text-color); /* Usar variable para texto */
   position: relative;
   transition: color 0.3s;
 }
 
-/* Efecto de subrayado dinámico */
 .nav-link::after {
   content: "";
   position: absolute;
@@ -33,7 +50,7 @@
   bottom: -5px;
   width: 0%;
   height: 2px;
-  background-color: #ff6600;
+  background-color: var(--primary-color);
   transition: width 0.3s ease-in-out;
 }
 
@@ -42,7 +59,58 @@
   width: 100%;
 }
 
-/* ✅ Ocultar menú normal en móviles */
+/* Contenedor del switch */
+.switch-container {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Ocultar el checkbox por defecto */
+.switch-container input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Estilos del label que actúa como slider */
+.switch-container label {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+/* Círculo dentro del switch */
+.switch-container label:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* Estado activo (checkbox checked) */
+.switch-container input:checked + label {
+  background-color: #ff6600;
+}
+
+/* Mover el círculo cuando está seleccionado */
+.switch-container input:checked + label:before {
+  transform: translateX(26px);
+}
+
+/* Ocultar menú normal en móviles */
 @media (max-width: 768px) {
   .nav-list {
     display: none;
@@ -54,27 +122,24 @@
   top: 0;
 }
 
-/* Cambiar el fondo del menú */
 .bm-menu {
-  background: white;
+  background: var(--bg-color);
   padding: 2rem;
   font-size: 1.2rem;
 }
 
-/* Estilos para los enlaces del menú hamburguesa */
 .bm-item {
   display: block;
   text-decoration: none;
-  color: black;
+  color: var(--text-color);
   margin-bottom: 15px;
   transition: color 0.3s;
 }
 
 .bm-item:hover {
-  color: #ff6600; /* Naranja */
+  color: var(--primary-color);
 }
 
-/* Estilos para el botón de hamburguesa */
 .bm-burger-button {
   position: fixed;
   width: 36px;
@@ -83,12 +148,10 @@
   top: 15px;
 }
 
-/* Color del icono de la hamburguesa */
 .bm-burger-bars {
-  background: black;
+  background: var(--text-color);
 }
 
-/* Color del botón cuando está abierto */
 .bm-cross {
-  background: black;
+  background: var(--text-color);
 }

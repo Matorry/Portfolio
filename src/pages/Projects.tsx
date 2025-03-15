@@ -102,7 +102,13 @@ export default function Projects() {
   const filteredProjects = projects.filter((p) => p.category === category);
 
   return (
-    <section className="projects">
+    <motion.section
+      className="projects"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.5 }}
+    >
       <h2>
         <FaLaptopCode /> Proyectos
       </h2>
@@ -143,7 +149,6 @@ export default function Projects() {
 
               {/* Botones de repositorio y live demo */}
               <div className="repo-buttons">
-                {/* Si solo hay un repositorio, muestra "Código" */}
                 {project.repoFront && !project.repoBack ? (
                   <a
                     href={project.repoFront}
@@ -155,7 +160,6 @@ export default function Projects() {
                   </a>
                 ) : (
                   <>
-                    {/* Si hay dos repositorios, muestra "Frontend" y "Backend" */}
                     <a
                       href={project.repoFront}
                       target="_blank"
@@ -174,8 +178,6 @@ export default function Projects() {
                     </a>
                   </>
                 )}
-
-                {/* Botón de demo si existe */}
                 {project.liveDemo && (
                   <a
                     href={project.liveDemo}
@@ -191,6 +193,6 @@ export default function Projects() {
           </motion.div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }

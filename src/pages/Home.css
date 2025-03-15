@@ -1,7 +1,11 @@
+/* Uso de variables CSS (definidas en un global.css o directamente en :root) */
 .home {
   text-align: center;
   padding: 50px 20px;
   font-family: Arial, sans-serif;
+  background-color: var(--bg-color, #fff);
+  color: var(--text-color, #333);
+  min-height: 90vh;
 }
 
 /* Foto de perfil */
@@ -18,12 +22,12 @@
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #ff6600;
+  border: 4px solid var(--primary-color, #ff6600);
   z-index: 1;
 }
 
 .highlight {
-  color: #ff6600;
+  color: var(--primary-color, #ff6600);
 }
 
 .subtitle {
@@ -46,7 +50,7 @@
   justify-content: center;
   gap: 8px;
   font-size: 20px;
-  color: #333;
+  color: var(--text-color, #333);
   margin-bottom: 10px;
 }
 
@@ -68,7 +72,7 @@
 }
 
 .tech-card:hover {
-  background-color: #ff6600;
+  background-color: var(--primary-color, #ff6600);
 }
 
 /* Redes Sociales */
@@ -78,10 +82,17 @@
 
 .social-links a {
   margin: 0 15px;
-  color: #333;
+  color: var(--text-color, #333);
   transition: color 0.3s;
 }
 
 .social-links a:hover {
-  color: #ff6600;
+  color: var(--primary-color, #ff6600);
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) {
+  .stack-grid {
+    grid-template-columns: 1fr;
+  }
 }
