@@ -2,11 +2,9 @@
   position: fixed;
   top: 0;
   width: 95%;
-  /* Usa la variable para el fondo, así se adapta al tema */
-  background-color: var(--bg-color);
   padding: 10px 20px;
   display: flex;
-  justify-content: flex-end; /* Alinea el contenido a la derecha */
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -110,13 +108,6 @@
   transform: translateX(26px);
 }
 
-/* Ocultar menú normal en móviles */
-@media (max-width: 768px) {
-  .nav-list {
-    display: none;
-  }
-}
-
 /* Estilos del menú de react-burger-menu */
 .bm-menu-wrap {
   top: 0;
@@ -154,4 +145,18 @@
 
 .bm-cross {
   background: var(--text-color);
+}
+
+/* Ocultar menú normal en móviles */
+@media (max-width: 768px) {
+  .nav-list {
+    display: none;
+  }
+
+  .mobile-switch {
+    position: fixed;
+    left: 20px;
+    top: 15px;
+    z-index: 1100;
+  }
 }

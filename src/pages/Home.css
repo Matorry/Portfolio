@@ -1,11 +1,9 @@
 /* Uso de variables CSS (definidas en un global.css o directamente en :root) */
 .home {
   text-align: center;
-  padding: 50px 20px;
+  padding: 35px 20px;
   font-family: Arial, sans-serif;
-  background-color: var(--bg-color, #fff);
   color: var(--text-color, #333);
-  min-height: 90vh;
 }
 
 /* Foto de perfil */
@@ -88,6 +86,20 @@
 
 .social-links a:hover {
   color: var(--primary-color, #ff6600);
+}
+
+.download-cv {
+  text-decoration: none;
+  color: #fff;
+  background-color: var(--primary-color, #ff6600);
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.download-cv:hover {
+  background-color: #e55a00; /* Color de fondo al pasar el cursor */
 }
 
 /* Media Query para dispositivos móviles */
