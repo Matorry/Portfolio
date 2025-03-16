@@ -1,7 +1,8 @@
-import emailjs from "@emailjs/browser";
+// Contact.tsx
 import { motion } from "framer-motion";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { FaComment, FaEnvelope, FaPaperPlane, FaUser } from "react-icons/fa";
+import { ContactData, sendContact } from "../services/nodemailerService"; // Ajusta la ruta según tu estructura
 import "./Contact.css";
 
 interface FormData {
@@ -30,21 +31,15 @@ export default function Contact() {
     setLoading(true);
     setStatus(null);
 
-    try {
-      const response = await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID || "",
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "",
-        {
-          title: "Consulta de Contacto",
-          name: formData.name,
-          email: "rodri.martinceron@gmail.com",
-          message: formData.email + ". " + formData.message,
-          time: new Date().toLocaleString(),
-        },
-        { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "" }
-      );
+    const dataToSend: ContactData = {
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+    };
 
-      if (response.status === 200) {
+    try {
+      const response = await sendContact(dataToSend);
+      if (response.ok) {
         setStatus("✅ Mensaje enviado con éxito");
         setFormData({ name: "", email: "", message: "" });
       } else {
@@ -52,7 +47,7 @@ export default function Contact() {
       }
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
-      setStatus("❌ Error en la conexión con EmailJS.");
+      setStatus("❌ Error en la conexión con el servidor.");
     } finally {
       setLoading(false);
     }
