@@ -66,7 +66,7 @@ export default function Home() {
         <img src={profilePic} alt="Rodrigo" className="profile-pic" />
         <div>
           <h1>
-            🚀 Hola, soy <span className="highlight">Rodrigo</span>
+            Hola, soy <span className="highlight">Rodrigo</span>
           </h1>
           <p className="subtitle">
             Full Stack Developer | Especializado en JavaScript & TypeScript

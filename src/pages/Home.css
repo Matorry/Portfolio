@@ -10,7 +10,6 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  margin-bottom: 20px;
 }
 
 .profile-pic {
@@ -58,7 +57,7 @@
 
 .about-me {
   max-width: 600px;
-  margin: 10px auto;
+  margin: 0px auto;
   text-align: center;
   padding: 20px;
   background-color: var(--card-bg, #f9f9f9);
