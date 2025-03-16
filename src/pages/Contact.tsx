@@ -36,20 +36,45 @@ export default function Contact() {
       message: formData.message,
     };
 
-    try {
-      const response = await sendContact(dataToSend);
-      if (response.ok) {
-        setStatus("✅ Mensaje enviado con éxito");
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        setStatus("❌ Error al enviar el mensaje");
+    let attempts = 0;
+    const maxAttempts = 2;
+    let success = false;
+
+    while (attempts < maxAttempts && !success) {
+      try {
+        const response = await sendContact(dataToSend);
+        if (response.ok) {
+          setStatus("✅ Mensaje enviado con éxito");
+          setFormData({ name: "", email: "", message: "" });
+          success = true;
+        } else {
+          attempts++;
+          if (attempts < maxAttempts) {
+            setStatus(
+              `❌ Error al enviar el mensaje. Reintentando... (${
+                attempts + 1
+              }/${maxAttempts})`
+            );
+          } else {
+            setStatus("❌ Error al enviar el mensaje");
+          }
+        }
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      } catch (error) {
+        attempts++;
+        if (attempts < maxAttempts) {
+          setStatus(
+            `❌ Error en la conexión con el servidor. Reintentando... (${
+              attempts + 1
+            }/${maxAttempts})`
+          );
+        } else {
+          setStatus("❌ Error en la conexión con el servidor.");
+        }
       }
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch (error) {
-      setStatus("❌ Error en la conexión con el servidor.");
-    } finally {
-      setLoading(false);
     }
+
+    setLoading(false);
   };
 
   return (
