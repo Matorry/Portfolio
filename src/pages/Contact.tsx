@@ -1,8 +1,7 @@
-// Contact.tsx
 import { motion } from "framer-motion";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { FaComment, FaEnvelope, FaPaperPlane, FaUser } from "react-icons/fa";
-import { ContactData, sendContact } from "../services/nodemailerService"; // Ajusta la ruta según tu estructura
+import { ContactData, sendContact } from "../services/nodemailerService";
 import "./Contact.css";
 
 interface FormData {
